@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Primer formulario</title>
+  
+  <script>
+    function calculateAge(birthDate) {
+      var today = new Date();
+      var birthDate = new Date(birthDate);
+      var age = today.getFullYear() - birthDate.getFullYear();
+      var monthDiff = today.getMonth() - birthDate.getMonth();
+
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+
+      return age;
+    }
+
+    function updateAge() {
+      var edad = calculateAge(document.miform.fechaNacimiento.value);
+      document.miform.edad.value = edad;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.miform.fechaNacimiento.addEventListener('input', updateAge);
+    });
+
+    function validateform() {
+      var nombre = document.miform.nombre.value;
+      var contr = document.miform.contr.value;
+      var email = document.miform.email.value;
+      var fechaNacimiento = document.miform.fechaNacimiento.value;
+      var edad = calculateAge(fechaNacimiento);
+      var nacionalidad = document.miform.nacionalidad.value;
+      var dni = document.miform.dni.value;
+      var genero = document.miform.genero.value;
+      var estadoCivil = document.miform.estadoCivil.value;
+      var telefono = document.miform.telefono.value;
+      var celular = document.miform.celular.value;
+      var direccion = document.miform.direccion.value;
+      var provincia = document.miform.provincia.value;
+      var codigoPostal = document.miform.codigoPostal.value;
+      var pais = document.miform.pais.value;
+      var nivelEstudio = document.miform.nivelEstudio.value;
+      var trabajaActualmente = document.miform.trabajaActualmente.value;
+      var buscaTrabajo = document.miform.buscaTrabajo.value;
+
+      // Validaciones
+      if (contr.length < 6) {
+        alert("La contraseña debe tener al menos 6 caracteres.");
+        return false; // Evita enviar el formulario si la validación falla
+      }
+
+      // Resto del código...
+
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Primer formulario</h1>
+  
+  <form name="miform" action="index.php" onsubmit="return validateform()" method="POST">
+    Nombre: <input type="text" name="nombre" required>
+    Contraseña: <input type="password" name="contr" required minlength="6">
+    Email: <input type="email" name="email" required autocomplete="email">
+    Fecha de nacimiento: <input type="date" name="fechaNacimiento" required>
+    Edad: <input type="number" name="edad" required>
+    Nacionalidad: <input type="text" name="nacionalidad" required>
+    DNI: <input type="text" name="dni" required>
+    Género: <input type="text" name="genero" required>
+    Estado civil: <input type="text" name="estadoCivil" required>
+    Teléfono: <input type="tel" name="telefono" required>
+    Celular: <input type="tel" name="celular" required>
+    Dirección: <input type="text" name="direccion" required>
+    Provincia: <input type="text" name="provincia" required>
+    Código postal: <input type="text" name="codigoPostal" required>
+    País: <input type="text" name="pais" required>
+    Nivel de estudio: <input type="text" name="nivelEstudio" required>
+    Trabaja actualmente:
+    <select name="trabajaActualmente" required>
+      <option value="">Seleccionar</option>
+      <option value="si">Sí</option>
+      <option value="no">No</option>
+    </select>
+    Busca trabajo:
+    <select name="buscaTrabajo" required>
+      <option value="">Seleccionar</option>
+      <option value="si">Sí</option>
+      <option value="no">No</option>
+    </select>
+    <button type="submit">Enviar</button>
+  </form>
+
+</body>
+</html>
