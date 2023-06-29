@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $buscaTrabajo = $_POST['buscaTrabajo'];
 
   // Conectar a la base de datos
-  $conn = new mysqli('localhost', 'miusuario', 'micontrasena', 'formularios');
+  $conn = new mysqli('localhost', 'miusuario', 'micontrasena', 'tessting1');
 
   // Verificar si hubo un error de conexión
   if ($conn->connect_error) {
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
   // Preparar la consulta SQL para insertar los datos en la tabla
-  $sql = "INSERT INTO tabla_datos (nombre, apellido, email, fechaNacimiento, edad, nacionalidad, dni, genero, estadoCivil, telefono, celular, direccion, provincia, codigoPostal, pais, nivelEstudio, trabajaActualmente, buscaTrabajo) 
+  $sql = "INSERT INTO users (nombre, apellido, email, fechaNacimiento, edad, nacionalidad, dni, genero, estadoCivil, telefono, celular, direccion, provincia, codigoPostal, pais, nivelEstudio, trabajaActualmente, buscaTrabajo) 
           VALUES ('$nombre', '$apellido', '$email', '$fechaNacimiento', '$edad', '$nacionalidad', '$dni', '$genero', '$estadoCivil', '$telefono', '$celular', '$direccion', '$provincia', '$codigoPostal', '$pais', '$nivelEstudio', '$trabajaActualmente', '$buscaTrabajo')";
 
   // Ejecutar la consulta SQL
