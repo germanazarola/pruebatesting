@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $buscaTrabajo = $_POST['buscaTrabajo'];
 
   // Conectar a la base de datos
-  $conn = new mysqli('localhost', 'miusuario', 'micontrasena', 'tessting1');
+  $conn = new mysqli('localhost', 'miusuario', 'micontrasena', 'testing1');
 
   // Verificar si hubo un error de conexión
   if ($conn->connect_error) {
