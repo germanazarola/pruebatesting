@@ -31,7 +31,7 @@
 
     function validateform() {
       var nombre = document.miform.nombre.value;
-      var contr = document.miform.contr.value;
+      var apellido = document.miform.apellido.value;
       var email = document.miform.email.value;
       var fechaNacimiento = document.miform.fechaNacimiento.value;
       var edad = calculateAge(fechaNacimiento);
@@ -66,7 +66,7 @@
   
   <form name="miform" action="index.php" onsubmit="return validateform()" method="POST">
     Nombre: <input type="text" name="nombre" required>
-    Contraseña: <input type="password" name="contr" required minlength="6">
+    Apellido: <input type="text" name="apellido" required>
     Email: <input type="email" name="email" required autocomplete="email">
     Fecha de nacimiento: <input type="date" name="fechaNacimiento" required>
     Edad: <input type="number" name="edad" required>

@@ -3,7 +3,7 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Obtener los datos del formulario
   $nombre = $_POST['nombre'];
-  $contr = $_POST['contr'];
+  $apellido = $_POST['apellido'];
   $email = $_POST['email'];
   $fechaNacimiento = $_POST['fechaNacimiento'];
   $edad = $_POST['edad'];
@@ -30,12 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
   // Preparar la consulta SQL para insertar los datos en la tabla
-  $sql = "INSERT INTO tabla_datos (nombre, contr, email, fechaNacimiento, edad, nacionalidad, dni, genero, estadoCivil, telefono, celular, direccion, provincia, codigoPostal, pais, nivelEstudio, trabajaActualmente, buscaTrabajo) 
-          VALUES ('$nombre', '$contr', '$email', '$fechaNacimiento', '$edad', '$nacionalidad', '$dni', '$genero', '$estadoCivil', '$telefono', '$celular', '$direccion', '$provincia', '$codigoPostal', '$pais', '$nivelEstudio', '$trabajaActualmente', '$buscaTrabajo')";
+  $sql = "INSERT INTO tabla_datos (nombre, apellido, email, fechaNacimiento, edad, nacionalidad, dni, genero, estadoCivil, telefono, celular, direccion, provincia, codigoPostal, pais, nivelEstudio, trabajaActualmente, buscaTrabajo) 
+          VALUES ('$nombre', '$apellido', '$email', '$fechaNacimiento', '$edad', '$nacionalidad', '$dni', '$genero', '$estadoCivil', '$telefono', '$celular', '$direccion', '$provincia', '$codigoPostal', '$pais', '$nivelEstudio', '$trabajaActualmente', '$buscaTrabajo')";
 
   // Ejecutar la consulta SQL
   if ($conn->query($sql) === TRUE) {
-    // Redirigir al usuario a una página de confirmación utilizando el método GET
+    // Redirigir al usuario a unsa página de confirmación utilizando el método GET
     header('Location:hola.html');
     exit(); // Asegurarse de que el script se detenga después de la redirección
   } else {
